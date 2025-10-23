@@ -1,16 +1,108 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>G.M Vision & Mission</title>
-    </head>
-    <body>
-<H1 style="color:maroon;">G.M's Vision & Mision.</H1>
-<H2>Our Vision is to:</H2>
-<p style="color:maroon;">Kindly upload.........</p>
-<H3>Our Mision is :</H3>
-Kindly upload the mission and the mision statements.....
-<br><br><a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/">Home</a>
+To make your webpage more readable and responsive across various display devices (desktops, tablets, smartphones), consider these enhancements:
 
-    </body>
+1. Use a viewport meta tag to control layout on mobile devices.
+2. Implement flexible units like percentages or viewport units (vw/vh) instead of fixed font sizes.
+3. Use media queries to adapt styles for different screen sizes.
+4. Ensure text sizes and spacing are comfortable for small screens.
+5. Consider using a responsive container for content.
+
+Here's a revised version of your code with these improvements:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE G.M Social Corner</title>
+  <style>
+    /* Basic Reset and font */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+
+    /* Heading styles */
+    h1 {
+      color: maroon;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    /* Social links list styles */
+    ul.social-links {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    ul.social-links li {
+      margin: 10px 0;
+      font-size: 1.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Link styles */
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Social media specific colors */
+    .facebook { color: #3b5998; } /* Facebook blue */
+    .youtube { color: #FF0000; } /* YouTube red */
+    .twitter { color: #00CC66; } /* Twitter greenish */
+    .instagram { color: #8a3ab9; } /* Instagram purple */
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      ul.social-links li {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  
+  <h1>Engage with us more and enjoy the best of you music encounter..</h1>
+  <h2>Find us on:</h2>
+  <ul class="social-links">
+    <li class="facebook">
+      Facebook: <a href="#">@ glorious melodies band</a>
+    </li>
+    <li class="youtube">
+      YouTube: <a href="#">glorious melodies band 254</a>
+    </li>
+    <li class="twitter">
+      Twitter: <a href="#">@g.m.b</a>
+    </li>
+    <li class="instagram">
+      Instagram: <a href="#">@g.m.b</a>
+    </li>
+  </ul>
+
+  <div style="text-align:center; margin-top:20px;">
+    <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/">Home</a>
+  </div>
+</body>
 </html>
