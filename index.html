@@ -70,6 +70,7 @@
     .youtube { color: #FF0000; } /* YouTube red */
     .twitter { color: #00CC66; } /* Twitter greenish */
     .instagram { color: #8a3ab9; } /* Instagram purple */
+    
 
     /* Responsive adjustments */
     @media (max-width: 600px) {
@@ -85,10 +86,70 @@
       ul.social-links li {
         font-size: 1em;
       }
-    }
+
+         /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgb(247, 188, 247);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header p {
+            width: 100%;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Search form inside header */
+        header form {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        header input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        header input[type="submit"] {
+            padding: 8px 16px;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        header form {
+                flex-direction: column;
+            }
+            .checkbox-group {
+                flex-direction: column;
+            }
+        
   </style>
 </head>
 <body>
+   <header>
+        <p>The Glorious Melodies Band,Transforming lives through Gospel Music</p>
+        <form action="#" method="get">
+            <input type="text" placeholder="Search items" />
+            <input type="submit" value="Search" />
+        </form>
+    </header>
   
   <h1>Interact with us more , find the best of our gospelmusic encounters here..</h1>
   <h2>Find us on:</h2>
@@ -107,8 +168,12 @@
     </li>
   </ul>
 
-   <div style="text-align:center;">
-    <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/" class="home-link">Home</a>
-  </div>
+   <!-- Footer -->
+        <div class="footer">
+            <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/" class="home-link">Home</a>
+        
+  <p style=color:maroon;>&copy; @g.m.b 2025 by kenkim web-designers,!!!for learning purposes!!!.</p>
+
+        </div>
 </body>
 </html>
