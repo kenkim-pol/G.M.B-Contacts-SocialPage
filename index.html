@@ -1,44 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>THE G.M Social Corner</title>
+  <style>
+    /* Basic Reset and font */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
 
-import { useState, useMemo } from "react";
-import { Search, Facebook, Youtube, Twitter, Instagram, Home, Music } from "lucide-react";
-import { Input } from "@/components/ui/input";
+    /* Heading styles */
+    h1 {
+      color: maroon;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 20px;
+    }
 
-const socialLinks = [
-  { platform: "Facebook", handle: "@ glorious melodies band", url: "https://facebook.com", icon: Facebook, colorClass: "text-[hsl(221,44%,41%)]" },
-  { platform: "YouTube", handle: "glorious melodies band 254", url: "https://youtube.com", icon: Youtube, colorClass: "text-[hsl(0,100%,50%)]" },
-  { platform: "Twitter", handle: "@g.m.b", url: "https://twitter.com", icon: Twitter, colorClass: "text-[hsl(152,100%,40%)]" },
-  { platform: "Instagram", handle: "@g.m.b", url: "https://instagram.com", icon: Instagram, colorClass: "text-[hsl(275,46%,48%)]" },
-];
+    h2 {
+      font-size: 1.5em;
+      margin-top: 30px;
+      text-align: center;
+    }
 
-const Index = () => {
-  const [search, setSearch] = useState("");
+    /* Social links list styles */
+    ul.social-links {
+      list-style-type: none;
+      padding: 0;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+ /* Home Button */
+    .home-link {
+      display: inline-block;
+      background-color: blue;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      margin-top: 30px;
+      text-align: center;
+      transition: background 0.3s;
+    }
 
-  const filteredLinks = useMemo(() => {
-    if (!search.trim()) return socialLinks;
-    const q = search.toLowerCase();
-    return socialLinks.filter(
-      (l) => l.platform.toLowerCase().includes(q) || l.handle.toLowerCase().includes(q)
-    );
-  }, [search]);
+    .home-link:hover {
+      background-color: darkblue;
+    }
 
-  const heading = "The Glorious Melodies Band";
-  const tagline = "Transforming lives through Gospel Music";
-  const description = "Interact with us more, find the best of our gospel music encounters here..";
-  const allText = [heading, tagline, description].join(" ").toLowerCase();
-  const q = search.toLowerCase().trim();
-  const showHeader = !q || allText.includes(q) || filteredLinks.length > 0;
+    ul.social-links li {
+      margin: 10px 0;
+      font-size: 1.2em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-  return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Fixed Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[hsl(300,80%,85%)] shadow-md">
-        <div className="max-w-2xl mx-auto px-4 py-3 flex flex-col items-center gap-3">
-          <div className="flex items-center gap-2">
-            <Music className="h-5 w-5 text-[hsl(0,100%,25%)]" />
-            <p className="text-lg font-bold text-foreground">{heading}</p>
-          </div>
-          <p className="text-sm text-muted-foreground italic">{tagline}</p>
-          <div className="relative w-full max-w-md">
+    /* Link styles */
+    a {
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Social media specific colors */
+    .facebook { color: #3b5998; } /* Facebook blue */
+    .youtube { color: #FF0000; } /* YouTube red */
+    .twitter { color: #00CC66; } /* Twitter greenish */
+    .instagram { color: #8a3ab9; } /* Instagram purple */
+    
+
+    /* Responsive adjustments */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+      h1 {
+        font-size: 1.5em;
+      }
+      h2 {
+        font-size: 1.2em;
+      }
+      ul.social-links li {
+        font-size: 1em;
+      }
+
+         /* Header styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgb(247, 188, 247);
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        header p {
+            width: 100%;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+
+        /* Search form inside header */
+        header form {
+            margin-top: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        header input[type="text"] {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        header input[type="submit"] {
+            padding: 8px 16px;
+            border: none;
+            background-color: #6c63ff;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        header form {
+                flex-direction: column;
+            }
+            .checkbox-group {
+                flex-direction: column;
+            }
+        
+  </style>
+</head>
+<body>
+   <header>
+        <p>The Glorious Melodies Band,Transforming lives through Gospel Music</p>
+       <div className="relative w-full max-w-md">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
               type="text"
@@ -49,56 +155,31 @@ const Index = () => {
             />
           </div>
         </div>
-      </header>
+    </header>
+  
+  <h1>Interact with us more , find the best of our gospelmusic encounters here..</h1>
+  <h2>Find us on:</h2>
+  <ul class="social-links">
+    <li class="facebook">
+      Facebook: <a href="#">@ glorious melodies band</a>
+    </li>
+    <li class="youtube">
+      YouTube: <a href="#">glorious melodies band 254</a>
+    </li>
+    <li class="twitter">
+      Twitter: <a href="#">@g.m.b</a>
+    </li>
+    <li class="instagram">
+      Instagram: <a href="#">@g.m.b</a>
+    </li>
+  </ul>
 
-      {/* Main Content */}
-      <main className="pt-44 pb-20 px-4 max-w-2xl mx-auto">
-        {showHeader && (!q || description.toLowerCase().includes(q)) && (
-          <p className="text-center text-muted-foreground mb-8">{description}</p>
-        )}
+   <!-- Footer -->
+        <div class="footer">
+            <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/" class="home-link">Home</a>
+        
+  <p style=color:maroon;>&copy; @g.m.b 2025 by kenkim web-designers,!!!for learning purposes!!!.</p>
 
-        {filteredLinks.length > 0 && (
-          <>
-            <h2 className="text-xl font-semibold text-center mb-6">Find us on:</h2>
-            <ul className="space-y-4">
-              {filteredLinks.map((link) => (
-                <li key={link.platform} className="flex flex-col items-center gap-1">
-                  <a
-                    href={link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={`flex items-center gap-2 text-lg font-bold ${link.colorClass} hover:opacity-80 transition-opacity`}
-                  >
-                    <link.icon className="h-5 w-5" />
-                    {link.platform}: {link.handle}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </>
-        )}
-
-        {q && filteredLinks.length === 0 && !allText.includes(q) && (
-          <p className="text-center text-muted-foreground mt-12">No results found for "{search}"</p>
-        )}
-
-        <div className="flex justify-center mt-10">
-          <a
-            href="/"
-            className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-4 py-2 rounded-md hover:bg-primary/90 transition-colors font-medium"
-          >
-            <Home className="h-4 w-4" />
-            Home
-          </a>
         </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="fixed bottom-0 left-0 right-0 bg-muted py-3 text-center text-xs text-muted-foreground">
-        © @g.m.b 2025 by kenkim web-designers, !!!for learning purposes!!!.
-      </footer>
-    </div>
-  );
-};
-
-export default Index;
+</body>
+</html>
