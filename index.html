@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en"><!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -8,8 +9,11 @@
     /* Basic Reset and font */
     body {
       font-family: Arial, sans-serif;
-      margin: 20px;
+      margin: 0;
+      padding: 0;
       line-height: 1.6;
+      /* Add padding top so content isn't hidden behind fixed header */
+      padding-top: 140px; 
     }
 
     /* Heading styles */
@@ -26,28 +30,61 @@
       text-align: center;
     }
 
-    /* Social links list styles */
+    /* --- Header Styles (Moved to global so it works on desktop too) --- */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgb(247, 188, 247);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Added shadow for better visibility */
+    }
+
+    header p {
+      width: 100%;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: bold;
+      margin: 0 0 10px 0;
+    }
+
+    /* Search form inside header */
+    header form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    header input[type="text"] {
+      flex: 1;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      min-width: 200px;
+    }
+
+    header input[type="submit"] {
+      padding: 8px 16px;
+      border: none;
+      background-color: #6c63ff;
+      color: white;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    /* --- Social Links Styles --- */
     ul.social-links {
       list-style-type: none;
       padding: 0;
       max-width: 600px;
       margin: 0 auto;
-    }
- /* Home Button */
-    .home-link {
-      display: inline-block;
-      background-color: blue;
-      color: white;
-      text-decoration: none;
-      padding: 10px 16px;
-      border-radius: 4px;
-      margin-top: 30px;
-      text-align: center;
-      transition: background 0.3s;
-    }
-
-    .home-link:hover {
-      background-color: darkblue;
     }
 
     ul.social-links li {
@@ -69,13 +106,37 @@
     .youtube { color: #FF0000; } /* YouTube red */
     .twitter { color: #00CC66; } /* Twitter greenish */
     .instagram { color: #8a3ab9; } /* Instagram purple */
-    
+
+    /* Home Button */
+    .home-link {
+      display: inline-block;
+      background-color: blue;
+      color: white;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      margin-top: 30px;
+      text-align: center;
+      transition: background 0.3s;
+    }
+
+    .home-link:hover {
+      background-color: darkblue;
+    }
+
+    /* Footer styles */
+    .footer {
+      text-align: center;
+      margin-top: 40px;
+      padding-bottom: 20px;
+    }
 
     /* Responsive adjustments */
     @media (max-width: 600px) {
       body {
-        padding: 10px;
+        padding-top: 160px; /* Adjust for potentially stacked content */
       }
+      
       h1 {
         font-size: 1.5em;
       }
@@ -85,80 +146,29 @@
       ul.social-links li {
         font-size: 1em;
       }
-
-         /* Header styles */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: rgb(247, 188, 247);
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            z-index: 1000;
-        }
-
-        header p {
-            width: 100%;
-            text-align: center;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        /* Search form inside header */
-        header form {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            max-width: 600px;
-        }
-
-        header input[type="text"] {
-            flex: 1;
-            padding: 8px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-
-        header input[type="submit"] {
-            padding: 8px 16px;
-            border: none;
-            background-color: #6c63ff;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        header form {
-                flex-direction: column;
-            }
-            .checkbox-group {
-                flex-direction: column;
-            }
-        
+      
+      header input[type="text"] {
+         width: 100%;
+      }
+    }
   </style>
 </head>
 <body>
+
    <header>
-        <p>The Glorious Melodies Band,Transforming lives through Gospel Music</p>
-       <div className="relative w-full max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="text"
-              placeholder="Search anything on this page..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-              className="pl-9 bg-background"
-            />
-          </div>
+        <p>The Glorious Melodies Band, Transforming lives through Gospel Music</p>
+        <!-- Replaced React Components with Standard HTML Form -->
+        <div class="relative w-full max-w-md">
+            <form action="#" method="GET">
+                <input type="text" name="search" placeholder="Search anything on this page..." />
+                <input type="submit" value="Search" />
+            </form>
         </div>
     </header>
   
-  <h1>Interact with us more , find the best of our gospelmusic encounters here..</h1>
+  <h1>Interact with us more, find the best of our gospel music encounters here...</h1>
   <h2>Find us on:</h2>
+  
   <ul class="social-links">
     <li class="facebook">
       Facebook: <a href="#">@ glorious melodies band</a>
@@ -175,8 +185,14 @@
   </ul>
 
    <!-- Footer -->
-        <div class="footer">
-            <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/" class="home-link">Home</a>
+   <div class="footer">
+        <a href="https://kenkim-pol.github.io/The-G.M.B-Connect-Centre/" class="home-link">Home</a>
+        <!-- Fixed syntax error in style attribute (added quotes) -->
+        <p style="color:maroon;">&copy; @g.m.b 2025 by kenkim web-designers, !!!for learning purposes!!!.</p>
+   </div>
+
+</body>
+</html>
         
   <p style=color:maroon;>&copy; @g.m.b 2025 by kenkim web-designers,!!!for learning purposes!!!.</p>
 
